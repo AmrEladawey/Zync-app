@@ -19,16 +19,16 @@ app.use(express.json());
 // ==========================================
 
 // A User has ONE Wallet
-User.hasOne(Wallet, { foreignKey: 'user_id' });
-Wallet.belongsTo(User, { foreignKey: 'user_id' });
+User.hasOne(Wallet, { foreignKey: 'User_ID' });
+Wallet.belongsTo(User, { foreignKey: 'User_ID' });
 
 // A Wallet can send MANY Transactions
-Wallet.hasMany(Transaction, { foreignKey: 'sender_wallet_id', as: 'SentTransactions' });
-Transaction.belongsTo(Wallet, { foreignKey: 'sender_wallet_id', as: 'Sender' });
+Wallet.hasMany(Transaction, { foreignKey: 'Sender_ID', as: 'SentTransactions' });
+Transaction.belongsTo(Wallet, { foreignKey: 'Sender_ID', as: 'Sender' });
 
 // A Wallet can receive MANY Transactions
-Wallet.hasMany(Transaction, { foreignKey: 'receiver_wallet_id', as: 'ReceivedTransactions' });
-Transaction.belongsTo(Wallet, { foreignKey: 'receiver_wallet_id', as: 'Receiver' });
+Wallet.hasMany(Transaction, { foreignKey: 'Receiver_ID', as: 'ReceivedTransactions' });
+Transaction.belongsTo(Wallet, { foreignKey: 'Receiver_ID', as: 'Receiver' });
 
 
 // ==========================================
