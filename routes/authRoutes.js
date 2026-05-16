@@ -10,5 +10,9 @@ router.post('/register', register);
 // Get wallet balance (requires JWT authentication)
 router.get('/balance', protect, getBalance);
 
+// Test endpoint (optional)
+router.get('/status', (req, res) => {
+    res.send("Zync API is online!");
+});
 
 module.exports = router;
